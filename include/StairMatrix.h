@@ -1,10 +1,10 @@
-#ifndef PRINT_MASSIVE
-#define PRINT_MASSIVE
+#ifndef STAIR_MATRIX
+#define STAIR_MATRIX
 
 //-------------------------------------------------------------
 
-void PrintMassive (int* data, size_t size_y, size_t size_x);
+void StairMatrix (int data[], size_t size_data);
 
 //-------------------------------------------------------------
 
-#endif //PRINT_MASSIVE
+#endif //STAIR_MATRIX
