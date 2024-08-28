@@ -20,4 +20,5 @@
 // size_t size2_y = sizeof(data2) / sizeof(data2[0]);
 // size_t size2_x = sizeof(data2[0]) / sizeof(data2[0][0]);
 
-// int data[] = {1, 1, 2, 1, 2, 3, 1, 2, 3, 4}; // матрица для лесенки
+//  int data[] = {1, 1, 2, 1, 2, 3, 1, 2, 3, 4}; // матрица для лесенки
+//  StairMatrix (data, sizeof(data));
