@@ -11,24 +11,24 @@ void MultiplicationMatrix (int* data1, int* data2, size_t size1_y, size_t size1_
 
 int main ()
     {
-    // int data1[][4] = {{10, 11, 12, 13}, 
-    //                  {20, 21, 22, 23}, 
-    //                  {30, 31, 32, 33}, 
-    //                  {40, 41, 42, 43}, 
-    //                  {50, 51, 52, 53}};
+    int data1[][4] = {{10, 11, 12, 13}, 
+                     {20, 21, 22, 23}, 
+                     {30, 31, 32, 33}, 
+                     {40, 41, 42, 43}, 
+                     {50, 51, 52, 53}};
 
-    // int data2[][4] = {{0,  1,  2,  3}, 
-    //                   {10, 11, 12, 13}, 
-    //                   {20, 21, 22, 23}, 
-    //                   {30, 31, 32, 33}, 
-    //                   {40, 41, 42, 43}};
+    int data2[][4] = {{0,  1,  2,  3}, 
+                      {10, 11, 12, 13}, 
+                      {20, 21, 22, 23}, 
+                      {30, 31, 32, 33}, 
+                      {40, 41, 42, 43}};
 
-    int data1[][3] = {{3,  -1, 2}, 
-                      {4,  2,  0}, 
-                      {-5, 6,  1}};
-    int data2[][2] = {{8, 1},
-                      {7, 2}, 
-                      {2, -3}};
+    // int data1[][3] = {{3,  -1, 2}, //матрицы для умножения
+    //                   {4,  2,  0}, 
+    //                   {-5, 6,  1}};
+    // int data2[][2] = {{8, 1},
+    //                   {7, 2}, 
+    //                   {2, -3}};
 
     size_t size1_y = sizeof(data1) / sizeof(data1[0]);
     size_t size1_x = sizeof(data1[0]) / sizeof(data1[0][0]);
@@ -85,28 +85,15 @@ void MultiplicationMatrix (int* data1, int* data2, size_t size1_y, size_t size1_
 
     for (int data1_y = 0; data1_y < size1_y; data1_y++)
         {
-        for (int data1_x = 0; data1_x < size1_x; data1_x++)
+        for (int data2_x = 0; data2_x < size2_x; data2_x++)
             {
-            for (int data2_x = 0; data2_x < size2_x; data2_x++)
+            for (int perebor = 0; perebor < size1_x; perebor++)
                 {
-                for (int data2_y = 0; data2_y < size2_y; data2_y++)
-                    {
-                    data_m_element += *(data1 + data1_y * size1_y + data1_x) * *(data2 + data2_y * size2_y + data2_x); // data1[data1_y][data1_x] * data2[data2_y][data2_x]
-                    }
-                data_multiple[data1_y][data2_x] = data_m_element;
-                data_m_element = 0;
+                data_m_element += *(data1 + data1_y * size1_x + perebor) * *(data2 + perebor * size2_x + data2_x); // data1[data1_y][perebor] * data2[perebor][data2_x]
                 }
+            data_multiple[data1_y][data2_x] = data_m_element;
+            data_m_element = 0;
             }
         }
     PrintMassive ((int*) data_multiple, size2_y, size2_x);
     }
-
-
-// 1 2
-// 3 4
-//
-// 5 6
-// 7 8
-//
-// 19 22
-// 43 50
