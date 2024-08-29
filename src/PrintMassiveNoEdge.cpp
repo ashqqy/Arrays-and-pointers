@@ -4,15 +4,13 @@
 
 //-------------------------------------------------------------
 
-void PrintMassiveNoEdge (int data[], int* data_adr[], int data_n_massives)
+void PrintMassiveNoEdge (int* data_adr[], int n_lines, int n_elem_in_lines[])
     {
-    for (int i = 0; i < data_n_massives - 1; i++)
+    for (int i = 0; i < n_lines; i++)
         {
-        for (int j = 0; j < (int) (data_adr[i + 1] - data_adr[i]); j++) // (int) (data_adr[i + 1] - data_adr[i]) - 
-                                                                        // количество элементов ряда, которое считается через 
-                                                                        // разность начала адресов соседних рядов
+        for (int j = 0; j < n_elem_in_lines[i]; j++)
             {
-            printf ("%d ", *(data_adr[i] + j)); // data_adr[i][j]
+            printf ("%d ", *(data_adr[i] + j));
             }
         printf ("\n");
         }
