@@ -42,6 +42,13 @@ void PrintMassiveNoEdge ()
             }
         printf ("\n");
         }
+
+    free (data_adr); data_adr = NULL;
+    free (n_elem_in_lines); n_elem_in_lines = NULL;
+    for (int i = 0; i < n_lines; i++)
+        {
+        free (data_adr[i]); data_adr[i] = NULL;
+        }
     }
 
 //-------------------------------------------------------------
