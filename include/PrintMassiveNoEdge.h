@@ -3,7 +3,7 @@
 
 //-------------------------------------------------------------
 
-void PrintMassiveNoEdge (int* data_adr[], int n_lines, int n_elem_in_lines[]);
+void PrintMassiveNoEdge ();
 
 //-------------------------------------------------------------
 
